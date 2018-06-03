@@ -1,29 +1,91 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { Panel, Tabs, Tab } from 'react-bootstrap';
 
 export class Home extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
         return <div>
-            <h1>Hello, world!</h1>
-            <p>Welcome to your new single-page application, built with:</p>
-            <ul>
-                <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-                <li><a href='https://facebook.github.io/react/'>React</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-                <li><a href='https://webpack.github.io/'>Webpack</a> for building and bundling client-side resources</li>
-                <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-            </ul>
-            <p>To help you get started, we've also set up:</p>
-            <ul>
-                <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-                <li><strong>Webpack dev middleware</strong>. In development mode, there's no need to run the <code>webpack</code> build tool. Your client-side resources are dynamically built on demand. Updates are available as soon as you modify any file.</li>
-                <li><strong>Hot module replacement</strong>. In development mode, you don't even need to reload the page after making most changes. Within seconds of saving changes to files, rebuilt React components will be injected directly into your running application, preserving its live state.</li>
-                <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>
-            </ul>
-            <h4>Going further</h4>
-            <p>
-                For larger applications, or for server-side prerendering (i.e., for <em>isomorphic</em> or <em>universal</em> applications), you should consider using a Flux/Redux-like architecture.
-                You can generate an ASP.NET Core application with React and Redux using <code>dotnet new reactredux</code> instead of using this template.
-            </p>
+            <style type="text/css">{`
+                .panel-heading {
+                    background-color: #623b2a !important;
+                    color: #c39367 !important;
+                    border-color: #623b2a !important;
+                }
+                .panel-body {
+                    background-color: #dbbea4 !important;
+                }
+            `}</style>
+            <Panel>
+                <Tabs defaultActiveKey={1} animation={false} id="uncontrolled-tab-example">
+                    <Tab eventKey={1} title="Главная">
+                        <h3>Основная информация</h3>
+                        <form>
+                            <div className="form-group">
+                                <label>Полное название организации</label>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите полное название организации" />
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+
+                                <div className="form-group">
+                                    <label>Краткое название организации</label>
+                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите краткое название организации" />
+                                        <small id="emailHelp" className="form-text text-muted">Данное название будет отображаться в предварительной записи</small>
+                        </div>
+
+                                    <div className="form-group">
+                                        <label>Тип организации</label>
+                                        <select className="form-control" id="exampleSelect1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                        <fieldset className="form-group">
+                                        <legend>Radio buttons</legend>
+                                        <div className="form-check">
+                                            <label className="form-check-label">
+                                                <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked />
+                                                    Option one is this and that&mdash;be sure to include why it's great
+                            </label>
+                            </div>
+                                            <div className="form-check">
+                                                <label className="form-check-label">
+                                                    <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                                        Option two can be something else and selecting it will deselect option one
+                            </label>
+                            </div>
+                                                <div className="form-check disabled">
+                                                    <label className="form-check-label">
+                                                        <input type="radio" className="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled />
+                                                            Option three is disabled
+                            </label>
+                            </div>
+                        </fieldset>
+                                                <div className="form-check">
+                                                    <label className="form-check-label">
+                                                        <input type="checkbox" className="form-check-input" />
+                                                            Check me out
+                            </label>
+                        </div>
+                        <button type="submit" className="btn btn-primary"><span className="glyphicon glyphicon-ok" aria-hidden="true"></span> Сохранить</button>
+                        
+                        </form>
+
+
+
+
+
+                    </Tab>
+                    <Tab eventKey={2} title="Специалисты">Tab 2 content</Tab>
+                    <Tab eventKey={3} title="Услуги">Tab 3 content</Tab>
+                    <Tab eventKey={4} title="Расписание">Tab 3 content</Tab>
+                    <Tab eventKey={5} title="Посетители">Tab 3 content</Tab>
+                    <Tab eventKey={6} title="Настройки">Tab 3 content</Tab>
+                </Tabs>
+            </Panel>
+            
         </div>;
     }
 }
